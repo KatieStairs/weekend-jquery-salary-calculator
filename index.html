@@ -12,13 +12,14 @@
 <body>
     <div>
         Add Employee
-        <input type="text" placeholder="First Name" id="fName">
-        <input type="text" placeholder="Last Name" id="lName">
-        <input type="number" placeholder="ID" id="identification">
-        <input type="text" placeholder="Title" id="title">
-        <input type="number" placeholder="Annual Salary" id="annualSalary">
+        <input type="text" placeholder="First Name" id="fNameInput">
+        <input type="text" placeholder="Last Name" id="lNameInput">
+        <input type="number" placeholder="ID" id="idInput">
+        <input type="text" placeholder="Title" id="titleInput">
+        <input type="number" placeholder="Annual Salary" id="annualSalaryInput">
         <button id="submitButton">Submit</button>
     </div>
+    <h2>Employee</h2>
     <table>
         <thead>
             <tr>
@@ -38,11 +39,12 @@
                 <td>CFO</td>
                 <td>200,000</td>
                 <td>
-                    <button class="delete">Delete</button>
+                    <button class="deleteEmployeeButton">Delete</button>
                 </td>
             </tr>
         </tbody>
+    </table>
+    <h3>Total Monthly: $<span id="totalMonthlyPayout"></span></h3>
     
-    </table>  
 </body>
 </html>
