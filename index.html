@@ -6,23 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src = "jquery.js"></script>
     <script src="stylesheet.js"></script>
+    <link rel="stylesheet" href="main.css"></link>
     <title>Salary Calculator</title>
 </head>
 <body>
-  <div>
-    Add Employee
-    <input type="text" placeholder="First Name" id="fName">
-    <input type="text" placeholder="Last Name" id="lName">
-    <input type="number" placeholder="ID" id="identification">
-    <input type="text" placeholder="Title" id="title">
-    <input type="number" placeholder="Annual Salary" id="annualSalary">
-    <button id="infoSubmitButton">Submit</button>
-    
-  </div>
+    <div>
+        Add Employee
+        <input type="text" placeholder="First Name" id="fName">
+        <input type="text" placeholder="Last Name" id="lName">
+        <input type="number" placeholder="ID" id="identification">
+        <input type="text" placeholder="Title" id="title">
+        <input type="number" placeholder="Annual Salary" id="annualSalary">
+        <button id="infoSubmitButton">Submit</button>
+    </div>
     <table>
-    <thead>
-
-    </thead>
-  </table>  
+        <thead>
+            <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>0003</td>
+                <td>CFO</td>
+                <td>200,000</td>
+                <td>
+                    <button class="delete">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    
+    </table>  
 </body>
 </html>
