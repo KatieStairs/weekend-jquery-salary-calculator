@@ -2,7 +2,7 @@ $(document).ready(readyNow);{
     //console.log('hi')
 }
 
-let totalMonthlySalary= 20000;
+let totalMonthlySalary
 let employeeInfo = [];
 
 function readyNow(){
@@ -11,7 +11,7 @@ function readyNow(){
     $('body').on('click', '#deleteEmployeeButton', deleteEmployeeButton);
     let monthlyPayoutBudget = $('#remainingMonthlyBudget')
     monthlyPayoutBudget.empty()
-    monthlyPayoutBudget.append(totalMonthlySalary.toLocaleString('en-US'))
+    monthlyPayoutBudget.append(totalMonthlySalary)
     renderEmployeeTable()
 }
 
@@ -53,21 +53,11 @@ function employeeSubmissionButton(){
     //calculateMonthlyBalance();
     //addRow();
     renderEmployeeTable();
+    calculateMonthlySalaryBalance();
+    renderTotalMonthly();
 }
 
-// function calculateMonthlyBalance(){
-//     //subtract salary from employeeInfo from totalMonthlySalary
-//     let monthlySalaryBalance = 0;
-    
-//     for (let i=0; i<employeeInfo.length; i++){
-//         totalMonthlySalary - Number(employeeInfo[i].annualSalary);
-//     }
-//     console.log('in calculateMonthlyBalance')
-
-// }
-
 function renderEmployeeTable(){
-    
     $('#employeesTable').empty();
     for (let i = 0; i < employeeInfo.length; i++) {
     $('#employeesTable').append(`
@@ -85,38 +75,23 @@ function renderEmployeeTable(){
     }
 }
 
-    // function calculateMonthlySalary(){
-    //     let employeeMonthlySalaryTemp = 0
-    //      for(let i = 0; i < employeeInfoTable.length; i++){
-    //         employeeMonthlySalaryTemp += Number(employeeInfoTable[i].SalaryList)
-    //      }
-    //       console.log(employeeMonthlySalaryTemp)
-          
-    //       let employeeMonthlySalary = Math.round(employeeMonthlySalaryTemp/12)
-        
-    //       console.log(employeeMonthlySalary)
-        
-          
-    //      let value = ('$' + employeeMonthlySalary);
-    //      $('#totalMonthlySalary').text(`Monthly Total: ${value}`);
-        
-    //      if (employeeMonthlySalary >= 20000){
-    //         $('#TheDiv').addClass('Over20k');
-    //     }
-    //     else{
-    //         $('#TheDiv').removeClass('Over20k');
-    //     }
-    //     console.log(`testing red ${value}`)
-    //      render()
-// } else {
-//     $('#output').empty();
-//     $('#output').append(`
-//         <h2 id="output">
-//             <div id="normal">
-//             Monthly Cost: ${monthlyCosts}
-//             </div>
-//         </h2>
-//     `)
-//     }
-//        }
-//}
+//Using the stored information, calculate monthly costs and append this to the to DOM
+
+function calculateMonthlySalaryBalance(){
+    console.log('in calculateMonthlySalaryBalance')
+    let monthlySalaryBalance = 0;
+    
+    for (let i=0; i<employeeInfo.length; i++){
+        monthlySalaryBalance += employeeInfo[i].annualSalary / 12;
+    } 
+    console.log(monthlySalaryBalance)
+    $('#remainingMonthlyBudget').append(monthlySalaryBalance)
+}
+
+
+function renderTotalMonthly(){
+    console.log('in renderTotalMonthly')
+    $('#remainingMonthlyBudget').append(totalMonthlySalary)
+    //$(totalMonthlySalary) - $(monthlySalaryBalance) 
+}
+
