@@ -2,7 +2,8 @@ $(document).ready(readyNow);{
     //console.log('hi')
 }
 
-let totalMonthlySalary
+//let totalMonthly = monthlySalaryBalance;
+
 let employeeInfo = [];
 
 function readyNow(){
@@ -11,7 +12,6 @@ function readyNow(){
     $('body').on('click', '#deleteEmployeeButton', deleteEmployeeButton);
     let monthlyPayoutBudget = $('#remainingMonthlyBudget')
     monthlyPayoutBudget.empty()
-    monthlyPayoutBudget.append(totalMonthlySalary)
     renderEmployeeTable()
 }
 
@@ -54,7 +54,7 @@ function employeeSubmissionButton(){
     //addRow();
     renderEmployeeTable();
     calculateMonthlySalaryBalance();
-    renderTotalMonthly();
+    //renderTotalMonthly();
 }
 
 function renderEmployeeTable(){
@@ -79,19 +79,14 @@ function renderEmployeeTable(){
 
 function calculateMonthlySalaryBalance(){
     console.log('in calculateMonthlySalaryBalance')
-    let monthlySalaryBalance = 0;
-    
+    $('#remainingMonthlyBudget').empty()
+    let monthlySalaryBalance = 0
     for (let i=0; i<employeeInfo.length; i++){
         monthlySalaryBalance += employeeInfo[i].annualSalary / 12;
     } 
+
     console.log(monthlySalaryBalance)
-    $('#remainingMonthlyBudget').append(monthlySalaryBalance)
+    $('#remainingMonthlyBudget').append(monthlySalaryBalance) //+ If (monthlySalaryBalance>20000){
+ //       color: #ff000
+   // })
 }
-
-
-function renderTotalMonthly(){
-    console.log('in renderTotalMonthly')
-    $('#remainingMonthlyBudget').append(totalMonthlySalary)
-    //$(totalMonthlySalary) - $(monthlySalaryBalance) 
-}
-
