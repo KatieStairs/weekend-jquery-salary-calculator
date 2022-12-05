@@ -2,7 +2,7 @@ $(document).ready(readyNow);{
     //console.log('hi')
 }
 
-//let totalMonthly = monthlySalaryBalance;
+//Global variables between .ready and function readyNow
 
 let employeeInfo = [];
 
@@ -13,6 +13,7 @@ function readyNow(){
     let monthlyPayoutBudget = $('#remainingMonthlyBudget')
     monthlyPayoutBudget.empty()
     renderEmployeeTable()
+    calculateMonthlySalaryBalance()
 }
 
 function deleteEmployeeButton(){
@@ -59,10 +60,10 @@ function employeeSubmissionButton(){
 
 function renderEmployeeTable(){
     $('#employeesTable').empty();
-    for (let i = 0; i < employeeInfo.length; i++) {
-    $('#employeesTable').append(`
+    for (let i = 0; i < employeeInfo.length; i++) { //let employee of employeeInfo would have worked too. //employee.firstname instead of employeeInfo[i].firstName
+     $('#employeesTable').append(`                   
         <tr>
-            <td>${employeeInfo[i].firstName}</td>
+            <td>${employeeInfo[i].firstName}</td>   
             <td>${employeeInfo[i].lastName}</td>
             <td>${employeeInfo[i].id}</td>
             <td>${employeeInfo[i].title}</td>
@@ -86,7 +87,12 @@ function calculateMonthlySalaryBalance(){
     } 
 
     console.log(monthlySalaryBalance)
-    $('#remainingMonthlyBudget').append(monthlySalaryBalance) //+ If (monthlySalaryBalance>20000){
- //       color: #ff000
-   // })
+    
+    $('#remainingMonthlyBudget').text(monthlySalaryBalance) //.text maybe? was .append
+        if (monthlySalaryBalance > 20000) {
+        $('#remainingMonthlyBudget').addClass('overBudgetText')
+    } else {
+        $('#remainingMonthlyBudget').removeClass('overBudgetText')
+    }
+
 }

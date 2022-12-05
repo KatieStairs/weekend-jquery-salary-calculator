@@ -4,8 +4,9 @@ table{
 
 table, th, td {
     border: 1px solid;
+    border-collapse: collapse;
 }
 
-.remainingMonthlyBudget {
-
+.overBudgetText {
+    color: red;
 }
